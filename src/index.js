@@ -1,6 +1,7 @@
-import { React, Component, Switch } from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+// eslint-disable-next-line object-curly-newline
+import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
 import './style.scss';
 
 
