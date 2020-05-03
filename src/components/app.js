@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
 import '../style.scss';
 import Counter from './counter';
-
+import Controls from './controls';
 
 const About = (props) => {
   return <div> All there is to know about me </div>;
@@ -51,6 +51,7 @@ class App extends Component {
             <Route exact path="/test/:id" component={Test} />
             <Route component={FallBack} />
           </Switch>
+          <Controls />
         </div>
       </Router>
     );
