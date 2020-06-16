@@ -1,0 +1,18 @@
+body, html {
+    font-family: "Roboto", sans-serif;
+    background: rgba(214, 213, 255, 0.911);
+    height: 100%;
+}
+
+.logo {
+    background-image: url('img/title.jpg');
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.active {
+    color: pink;
+}
+  
