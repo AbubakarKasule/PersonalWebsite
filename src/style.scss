@@ -1,18 +1,137 @@
 body, html {
     font-family: "Roboto", sans-serif;
-    background: rgba(214, 213, 255, 0.911);
+    // background-image: url(https://media.giphy.com/media/3ov9jHiEzknijxAD3q/giphy.gif); // (https://media.giphy.com/media/xVn3ZmKrKIOLS/giphy.gif);
+    // background-image: url(https://media.giphy.com/media/3ov9jJuT2pEVMRMas0/giphy.gif); // https://media.giphy.com/media/k5GcybwY1yybmGwrFg/giphy.gif);
+    background-color: black;
+    background-size: cover;
     height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
 }
 
-.logo {
-    background-image: url('img/title.jpg');
-    width: 100px;
-    height: 100px;
-    background-repeat: no-repeat;
-    background-size: contain;
+.fade-enter {
+    opacity: 0.01;
 }
 
-.active {
-    color: pink;
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+}
+
+li {
+    display: inline-block;
+    margin-left: 20px;
+    a {
+      text-decoration: none;
+      font-size: 20px;
+      color: rgb(139, 139, 139); // #333;
+    }
+    a:hover {
+        color: rgb(30, 202, 152); // #333;
+    }
+}
+
+// Checkbox help from https://www.digitalocean.com/community/tutorials/react-react-burger-menu-sidebar
+/* Individual item */
+.bm-item {
+    display: inline-block;
+  
+    /* Our sidebar item styling */
+    text-decoration: none;
+    margin-bottom: 10px;
+    color: #d1d1d1;
+    transition: color 0.2s;
+  }
+  
+  /* Change color on hover */
+  .bm-item:hover {
+    color: rgb(30, 202, 152);
+  }
+  
+  /* The rest copied directly from react-burger-menu docs */
+  
+  /* Position and sizing of burger button */
+  .bm-burger-button {
+    position: fixed;
+    width: 36px;
+    height: 30px;
+    left: 36px;
+    top: 36px;
+  }
+  
+  /* Color/shape of burger icon bars */
+  .bm-burger-bars {
+    background: #ffffff;
+  }
+  
+  /* Position and sizing of clickable cross button */
+  .bm-cross-button {
+    height: 24px;
+    width: 24px;
+  }
+  
+  /* Color/shape of close button cross */
+  .bm-cross {
+    background: #bdc3c7;
+  }
+  
+  /* General sidebar styles */
+  .bm-menu {
+    background: #000000;
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+  }
+  
+  /* Morph shape necessary with bubble or elastic */
+  .bm-morph-shape {
+    fill: #373a47;
+  }
+  
+  /* Wrapper for item list */
+  .bm-item-list {
+    color: #fce91f;
+  }
+  
+  /* Styling of overlay */
+  .bm-overlay {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+
+.switch{
+    color: rgb(255, 255, 255);
+    padding: 15;
 }
   
+.switch:hover{
+    color: rgb(30, 202, 152);
+}
+
+.project-links {
+text-decoration:none;
+background: #80a7ef86;
+color: inherit;
+text-align: center;
+width: 20%;
+transition: background 0.1s cubic-bezier(.33,.66,.66,1);
+}
+
+.project-links:hover {
+background: #80a7ef;
+border-radius: 0px;
+width: 30%;
+}
+
+.emoji {
+    color: rgb(30, 202, 152);
+}

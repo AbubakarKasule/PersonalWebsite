@@ -1,61 +1,32 @@
-import React, { Component } from 'react';
+import React from 'react';
 // eslint-disable-next-line object-curly-newline
-import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { useMediaQuery } from '@material-ui/core';
+import useForceUpdate from 'use-force-update';
+import Container from './Container';
+import Header from './Header';
 import '../style.scss';
-import Counter from './counter';
-import Controls from './controls';
 
-const About = (props) => {
-  return <div> All there is to know about me </div>;
-};
+let lightMode = false;
 
-const Welcome = (props) => {
-  return <div>Welcome <Counter /> </div>;
-};
+function App() {
+  const mobile = useMediaQuery('(max-width:600px)');
+  const forceUpdate = useForceUpdate();
 
-const Nav = (props) => {
+  const change = () => {
+    lightMode = lightMode !== true;
+    forceUpdate();
+    console.log('k');
+  };
+
   return (
-    <nav>
-      <ul>
-        <li><NavLink to="/" exact>Home</NavLink></li>
-        <li><NavLink to="/about">About</NavLink></li>
-        <li><NavLink to="/test/id1">test id1</NavLink></li>
-        <li><NavLink to="/test/id2">test id2</NavLink></li>
-      </ul>
-    </nav>
+    <Router>
+      <div>
+        <Container mobile={mobile} lightMode={lightMode} />
+        <Header mobile={mobile} change={change} lightMode={lightMode} />
+      </div>
+    </Router>
   );
-};
-
-const Test = (props) => {
-  return <div> ID: {props.match.params.id} </div>;
-};
-
-const FallBack = (props) => {
-  return <div>URL Not Found</div>;
-};
-
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {}; // nothing here yet
-  }
-
-  render() {
-    return (
-      <Router>
-        <div>
-          <Nav />
-          <Switch>
-            <Route exact path="/" component={Welcome} />
-            <Route path="/about" component={About} />
-            <Route exact path="/test/:id" component={Test} />
-            <Route component={FallBack} />
-          </Switch>
-          <Controls />
-        </div>
-      </Router>
-    );
-  }
 }
 
 export default App;
