@@ -18,8 +18,8 @@ class AboutMe extends Component {
         textAlign: 'center',
         width: '90%',
         zIndex: 2,
-        position: 'relative',
-        paddingTop: 60,
+        position: 'absolute',
+        top: 50,
       };
     } else {
       style = {
@@ -30,8 +30,8 @@ class AboutMe extends Component {
         textAlign: 'center',
         width: '90%',
         zIndex: 2,
-        position: 'relative',
-        paddingTop: 60,
+        position: 'absolute',
+        top: 50,
       };
     }
 
@@ -41,25 +41,12 @@ class AboutMe extends Component {
           display: 'flex',
           alignItems: 'center',
           width: '100vw',
-          minHeight: '100vh',
+          minHeight: '50vh',
           flexDirection: 'column',
           position: 'relative',
           justifyContent: 'center',
-          zIndex: 1,
         }}
       >
-        <div style={{
-          backgroundImage: `url(${this.props.lightMode ? 'https://media.giphy.com/media/3ov9jJuT2pEVMRMas0/giphy.gif' : 'https://media.giphy.com/media/k5GcybwY1yybmGwrFg/giphy.gif'})`,
-          filter: 'blur(8px)',
-          backgroundSize: 'cover',
-          position: 'absolute',
-          width: '100%',
-          minHeight: '100%',
-          top: 0,
-          padding: 0,
-          margin: 0,
-        }}
-        />
         <p style={style}>
           Hi! I&apos;m Abubakar, a software engineer and Full-Stack web developer.
           I enjoy creating applications and websites that I find both useful and beautiful (on the inside and outside).

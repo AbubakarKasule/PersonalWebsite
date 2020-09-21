@@ -1,15 +1,14 @@
 /* eslint-disable max-len */
 import React, { Component } from 'react';
 import {
-  Fab,
   Card,
   CardActions,
   CardContent,
+  Collapse,
   Typography,
+  IconButton,
 } from '@material-ui/core';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-// import ListItem from './ListItem';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 class Projects extends Component {
   listItems = [
@@ -109,7 +108,13 @@ class Projects extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { currentIndex: 0 }; // nothing here yet
+    this.expanded = [];
+    // eslint-disable-next-line no-plusplus
+    for (let i = 0; i < this.listItems.length; i++) {
+      this.expanded.push(false);
+    }
+
+    this.state = { exp: this.expanded }; // nothing here yet
 
     if (this.props.mobile) {
       this.styles = {
@@ -148,7 +153,7 @@ class Projects extends Component {
           padding: 0,
           margin: 0,
           position: 'absolute',
-          top: 150,
+          top: 50,
           justifyContent: 'center',
           alignItems: 'center',
         },
@@ -156,122 +161,96 @@ class Projects extends Component {
     }
   }
 
-  prev = () => {
+  handleExpandClick = (i) => {
+    const temp = [...this.state.exp];
+    temp[i] = temp[i] !== true;
     this.setState((prevState) => {
-      if (prevState.currentIndex === 0) {
-        return ({ currentIndex: this.listItems.length - 1 });
-      } else {
-        return ({ currentIndex: prevState.currentIndex - 1 });
-      }
-    });
-  };
-
-  next = () => {
-    this.setState((prevState) => {
-      if (prevState.currentIndex === this.listItems.length - 1) {
-        return ({ currentIndex: 0 });
-      } else {
-        return ({ currentIndex: prevState.currentIndex + 1 });
-      }
+      return ({ exp: temp });
     });
   };
 
   render() {
-    const item = this.listItems[this.state.currentIndex];
     return (
       <div className="This One" style={this.styles.container}>
-        <div style={{
-          backgroundImage: `url(${this.props.lightMode ? 'https://media.giphy.com/media/3ov9jJuT2pEVMRMas0/giphy.gif' : 'https://media.giphy.com/media/k5GcybwY1yybmGwrFg/giphy.gif'})`,
-          filter: 'blur(8px)',
-          backgroundSize: 'cover',
-          position: 'absolute',
-          width: '100%',
-          minHeight: '100vh',
-          top: 0,
-          padding: 0,
-          margin: 0,
-        }}
-        />
         <div style={this.styles.card}>
-          <Card style={{
-            width: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center',
-          }}
-          >
-            <CardContent style={{
-              display: 'flex', width: '100%', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-            }}
-            >
-              <Typography align="center"
+          {this.listItems.map((item, index) => {
+            return (
+              <Card key={item.title}
                 style={{
-                  color: 'black', fontSize: 32, fontFamily: 'Raleway', whiteSpace: 'pre-wrap', maxWidth: '90%',
+                  width: '50%', marginBottom: 20, display: 'flex', flexDirection: 'column', alignItems: 'center',
                 }}
               >
-                {item.title}
-              </Typography>
-              <Typography align="center"
-                color="textSecondary"
-                style={{
-                  fontSize: 14, fontFamily: 'Raleway', whiteSpace: 'pre-wrap', maxWidth: '90%',
+                <CardContent style={{
+                  width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center',
                 }}
-              >
-                {item.period}
-              </Typography>
-              <Typography align="center"
-                color="textSecondary"
-                style={{
-                  fontSize: 18, fontFamily: 'Raleway', whiteSpace: 'pre-wrap', maxWidth: '90%',
-                }}
-              >
-                {item.subtitle}
-              </Typography>
-              <Typography align="center"
-                style={{
-                  color: 'black', fontSize: 14, fontFamily: 'Raleway', whiteSpace: 'pre-wrap', maxWidth: '90%',
-                }}
-              >
-                {item.description}
-              </Typography>
-              <div style={{
-                display: 'flex', width: '100%', flexDirection: 'column', alignItems: 'center',
-              }}
-              >
-                {item.links.map((link) => { return (<a href={link.url} className="project-links">{link.name}</a>); })}
-              </div>
-            </CardContent>
-            <CardActions style={{
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'center',
-              alignItems: 'center',
-              backgroundColor: 'rgb(240,240,240)',
-              width: '100%',
-            }}
-            >
-              <div style={{
-                display: 'flex',
-                flexDirection: 'row',
-                width: '100%',
-                padding: 0,
-                margin: 0,
-                justifyContent: 'space-around',
-                alignItems: 'center',
-              }}
-              >
-                <Fab size="large"
-                  color="primary"
-                  onClick={() => { this.prev(); }}
                 >
-                  <ChevronLeftIcon />
-                </Fab>
-                <Fab size="large"
-                  color="primary"
-                  onClick={() => { this.next(); }}
+                  <Typography align="center"
+                    style={{
+                      color: 'black', fontSize: 32, fontFamily: 'Raleway', whiteSpace: 'pre-wrap', maxWidth: '90%',
+                    }}
+                  >
+                    {item.title}
+                  </Typography>
+                  <Typography align="center"
+                    color="textSecondary"
+                    style={{
+                      fontSize: 14, fontFamily: 'Raleway', whiteSpace: 'pre-wrap', maxWidth: '90%',
+                    }}
+                  >
+                    {item.period}
+                  </Typography>
+                  <Typography align="center"
+                    color="textSecondary"
+                    style={{
+                      fontSize: 18, fontFamily: 'Raleway', whiteSpace: 'pre-wrap', maxWidth: '90%',
+                    }}
+                  >
+                    {item.subtitle}
+                  </Typography>
+                  <Typography align="center"
+                    style={{
+                      color: 'black', fontSize: 14, fontFamily: 'Raleway', whiteSpace: 'pre-wrap', maxWidth: '90%',
+                    }}
+                  >
+                    {item.description}
+                  </Typography>
+                </CardContent>
+                <CardActions style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  backgroundColor: 'rgb(240,240,240)',
+                  width: '100%',
+                }}
                 >
-                  <ChevronRightIcon />
-                </Fab>
-              </div>
-            </CardActions>
-          </Card>
+                  <IconButton
+                    onClick={() => { this.handleExpandClick(index); }}
+                  >
+                    <ExpandMoreIcon />
+                  </IconButton>
+                </CardActions>
+                <Collapse in={this.state.exp[index]} timeout="auto" unmountOnExit style={{ width: '100%' }}>
+                  <CardContent style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    backgroundColor: 'rgb(240,240,240)',
+                    width: '100%',
+                  }}
+                  >
+                    <div style={{
+                      display: 'flex', width: '100%', flexDirection: 'column', alignItems: 'center',
+                    }}
+                    >
+                      {item.links.map((link) => { return (<a href={link.url} className="project-links">{link.name}</a>); })}
+                    </div>
+                  </CardContent>
+                </Collapse>
+              </Card>
+            );
+          })}
         </div>
       </div>
     );

@@ -17,7 +17,6 @@ function LandingSection(props) {
         display: 'flex',
         alignItems: 'center',
         width: '100vw',
-        height: '100vh',
         flexDirection: 'column',
         position: 'relative',
       },
@@ -92,7 +91,6 @@ function LandingSection(props) {
         display: 'flex',
         alignItems: 'center',
         width: '100vw',
-        height: '100vh',
         flexDirection: 'column',
         position: 'relative',
       },
@@ -103,7 +101,7 @@ function LandingSection(props) {
         alignContent: 'center',
         alignItems: 'center',
         borderRadius: '5px',
-        marginTop: 150,
+        marginTop: 50,
         boxShadow: '5px 5px 15px 5px',
         width: 500,
         height: 500,
@@ -163,21 +161,8 @@ function LandingSection(props) {
     };
   }
 
-  console.log(props.lightMode);
-
   return (
     <div style={styles.container}>
-      <div style={{
-        backgroundImage: `url(${props.lightMode ? 'https://media.giphy.com/media/3ov9jJuT2pEVMRMas0/giphy.gif' : 'https://media.giphy.com/media/k5GcybwY1yybmGwrFg/giphy.gif'})`,
-        backgroundSize: 'cover',
-        position: 'absolute',
-        width: '100%',
-        minHeight: '100%',
-        top: 0,
-        padding: 0,
-        margin: 0,
-      }}
-      />
       <div style={styles.card}>
         <div />
         <div />

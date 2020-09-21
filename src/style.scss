@@ -2,9 +2,6 @@ body, html {
     font-family: "Roboto", sans-serif;
     // background-image: url(https://media.giphy.com/media/3ov9jHiEzknijxAD3q/giphy.gif); // (https://media.giphy.com/media/xVn3ZmKrKIOLS/giphy.gif);
     // background-image: url(https://media.giphy.com/media/3ov9jJuT2pEVMRMas0/giphy.gif); // https://media.giphy.com/media/k5GcybwY1yybmGwrFg/giphy.gif);
-    background-color: black;
-    background-size: cover;
-    height: 100%;
     padding: 0;
     margin: 0;
     overflow-x: hidden;
@@ -34,7 +31,8 @@ li {
     a {
       text-decoration: none;
       font-size: 20px;
-      color: rgb(139, 139, 139); // #333;
+      padding: 5px;
+      color: rgb(255, 255, 255); // #333;
     }
     a:hover {
         color: rgb(30, 202, 152); // #333;

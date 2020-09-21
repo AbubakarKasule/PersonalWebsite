@@ -34,9 +34,8 @@ function Header({ mobile, change, lightMode }) {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          position: 'absolute',
+          position: 'relative',
           paddingTop: 0,
-          zIndex: 12,
         }}
       >
         <ul style={{

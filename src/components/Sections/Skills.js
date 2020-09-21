@@ -2,14 +2,11 @@
 import React, { Component } from 'react';
 import {
   Avatar,
-  Fab,
   Card,
   CardActions,
   CardContent,
   Typography,
 } from '@material-ui/core';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 // import ListItem from './ListItem';
@@ -28,7 +25,7 @@ class Skills extends Component {
     },
     {
       title: 'Python',
-      url: 'https://www.domoticall.com/wp-content/uploads/2017/05/python-logo.png',
+      url: 'https://www.sketchappsources.com/resources/source-image/python-logo.png',
       rating: 4,
     },
     {
@@ -38,22 +35,22 @@ class Skills extends Component {
     },
     {
       title: 'HTML',
-      url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png',
+      url: 'https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_640.png',
       rating: 4,
     },
     {
       title: 'React Native',
-      url: 'https://www.manhattanmobile.com/wp-content/uploads/2018/08/react-native-workshop.jpg',
+      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQEQKr7IIHX50osjX-livC8V58s-zMt2ZWglQ&usqp=CAU',
       rating: 4,
     },
     {
       title: 'C',
-      url: 'https://www.pngkit.com/png/detail/101-1010012_c-programming-icon-c-programming-language-logo.png',
+      url: 'https://cdn.iconscout.com/icon/free/png-512/c-programming-569564.png',
       rating: 3,
     },
     {
       title: 'CSS',
-      url: 'https://cdn.worldvectorlogo.com/logos/css3.svg',
+      url: 'https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582747_960_720.png',
       rating: 3,
     },
     {
@@ -63,15 +60,14 @@ class Skills extends Component {
     },
     {
       title: 'Java',
-      url: 'https://www.pngkit.com/png/detail/101-1010012_c-programming-icon-c-programming-language-logo.png',
+      url: 'https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg',
       rating: 3,
     },
   ];
 
-
   constructor(props) {
     super(props);
-    this.state = { currentIndex: 0 }; // nothing here yet
+    this.state = { }; // nothing here yet
 
     if (this.props.mobile) {
       this.styles = {
@@ -110,33 +106,13 @@ class Skills extends Component {
           padding: 0,
           margin: 0,
           position: 'absolute',
-          top: 150,
+          top: 50,
           justifyContent: 'center',
           alignItems: 'center',
         },
       };
     }
   }
-
-  prev = () => {
-    this.setState((prevState) => {
-      if (prevState.currentIndex === 0) {
-        return ({ currentIndex: this.listItems.length - 1 });
-      } else {
-        return ({ currentIndex: prevState.currentIndex - 1 });
-      }
-    });
-  };
-
-  next = () => {
-    this.setState((prevState) => {
-      if (prevState.currentIndex === this.listItems.length - 1) {
-        return ({ currentIndex: 0 });
-      } else {
-        return ({ currentIndex: prevState.currentIndex + 1 });
-      }
-    });
-  };
 
   renderRating = (rating) => {
     const temp = [];
@@ -153,93 +129,62 @@ class Skills extends Component {
   };
 
   render() {
-    const item = this.listItems[this.state.currentIndex];
     return (
       <div className="This One" style={this.styles.container}>
-        <div style={{
-          backgroundImage: `url(${this.props.lightMode ? 'https://media.giphy.com/media/3ov9jJuT2pEVMRMas0/giphy.gif' : 'https://media.giphy.com/media/k5GcybwY1yybmGwrFg/giphy.gif'})`,
-          filter: 'blur(8px)',
-          backgroundSize: 'cover',
-          position: 'absolute',
-          width: '100%',
-          minHeight: '100vh',
-          top: 0,
-          padding: 0,
-          margin: 0,
-        }}
-        />
         <div style={this.styles.card}>
-          <Card style={{
-            width: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center',
-          }}
-          >
-            <CardContent style={{
-              display: 'flex', width: '100%', flexDirection: 'column', alignItems: 'center', justifyItems: 'center',
-            }}
-            >
-              <Typography align="center"
+          {this.listItems.map((item, index) => {
+            return (
+              <Card key={item.title}
                 style={{
-                  color: 'black', fontSize: 32, fontFamily: 'Raleway', whiteSpace: 'pre-wrap', maxWidth: '90%',
+                  width: '50%', marginBottom: 20, display: 'flex', flexDirection: 'column', alignItems: 'center',
                 }}
               >
-                {item.title}
-              </Typography>
-              <Avatar style={{
-                width: 300,
-                height: 300,
-              }}
-                alt="logo"
-                src={item.url}
-              />
-              <Typography align="center"
-                color="textSecondary"
-                style={{
-                  fontSize: 18, fontFamily: 'Raleway', whiteSpace: 'pre-wrap', maxWidth: '90%',
+                <CardContent style={{
+                  width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center',
                 }}
-              >
-                Proficiency
-              </Typography>
-              <div style={{
-                display: 'flex', width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
-              }}
-              >
-                {this.renderRating(item.rating).map((emoji) => { return emoji; })}
-              </div>
-            </CardContent>
-            <CardActions style={{
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'center',
-              alignItems: 'center',
-              backgroundColor: 'rgb(240,240,240)',
-              width: '100%',
-            }}
-            >
-              <div style={{
-                display: 'flex',
-                flexDirection: 'row',
-                width: '100%',
-                padding: 0,
-                margin: 0,
-                justifyContent: 'space-around',
-                alignItems: 'center',
-              }}
-              >
-                <Fab size="large"
-                  color="primary"
-                  onClick={() => { this.prev(); }}
                 >
-                  <ChevronLeftIcon />
-                </Fab>
-                <Fab size="large"
-                  color="primary"
-                  onClick={() => { this.next(); }}
+                  <Typography align="center"
+                    style={{
+                      color: 'black', fontSize: 32, fontFamily: 'Raleway', whiteSpace: 'pre-wrap', maxWidth: '90%',
+                    }}
+                  >
+                    {item.title}
+                  </Typography>
+                  <Avatar style={{
+                    width: 300,
+                    height: 300,
+                  }}
+                    alt="logo"
+                    src={item.url}
+                  />
+                  <Typography align="center"
+                    color="textSecondary"
+                    style={{
+                      fontSize: 18, fontFamily: 'Raleway', whiteSpace: 'pre-wrap', maxWidth: '90%',
+                    }}
+                  >
+                    Comfort Level
+                  </Typography>
+                </CardContent>
+                <CardActions style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  backgroundColor: 'rgb(240,240,240)',
+                  width: '100%',
+                }}
                 >
-                  <ChevronRightIcon />
-                </Fab>
-              </div>
-            </CardActions>
-          </Card>
+                  <div style={{
+                    display: 'flex', width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
+                  }}
+                  >
+                    {this.renderRating(item.rating).map((emoji) => { return emoji; })}
+                  </div>
+                </CardActions>
+              </Card>
+            );
+          })}
         </div>
       </div>
     );

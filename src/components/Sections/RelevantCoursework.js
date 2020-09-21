@@ -1,15 +1,11 @@
 /* eslint-disable max-len */
 import React, { Component } from 'react';
 import {
-  Fab,
   Card,
   CardActions,
   CardContent,
   Typography,
 } from '@material-ui/core';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-// import ListItem from './ListItem';
 
 class RelevantCoursework extends Component {
   listItems = [
@@ -65,7 +61,7 @@ class RelevantCoursework extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { currentIndex: 0 }; // nothing here yet
+    this.state = {}; // nothing here yet
 
     if (this.props.mobile) {
       this.styles = {
@@ -104,7 +100,7 @@ class RelevantCoursework extends Component {
           padding: 0,
           margin: 0,
           position: 'absolute',
-          top: 150,
+          top: 50,
           justifyContent: 'center',
           alignItems: 'center',
         },
@@ -112,109 +108,64 @@ class RelevantCoursework extends Component {
     }
   }
 
-  prev = () => {
-    this.setState((prevState) => {
-      if (prevState.currentIndex === 0) {
-        return ({ currentIndex: this.listItems.length - 1 });
-      } else {
-        return ({ currentIndex: prevState.currentIndex - 1 });
-      }
-    });
-  };
-
-  next = () => {
-    this.setState((prevState) => {
-      if (prevState.currentIndex === this.listItems.length - 1) {
-        return ({ currentIndex: 0 });
-      } else {
-        return ({ currentIndex: prevState.currentIndex + 1 });
-      }
-    });
-  };
-
   render() {
-    const item = this.listItems[this.state.currentIndex];
     return (
       <div className="This One" style={this.styles.container}>
-        <div style={{
-          backgroundImage: `url(${this.props.lightMode ? 'https://media.giphy.com/media/3ov9jJuT2pEVMRMas0/giphy.gif' : 'https://media.giphy.com/media/k5GcybwY1yybmGwrFg/giphy.gif'})`,
-          filter: 'blur(8px)',
-          backgroundSize: 'cover',
-          position: 'absolute',
-          width: '100%',
-          minHeight: '100vh',
-          top: 0,
-          padding: 0,
-          margin: 0,
-        }}
-        />
         <div style={this.styles.card}>
-          <Card style={{ width: '50%' }}>
-            <CardContent style={{ width: '100%' }}>
-              <Typography align="center"
+          {this.listItems.map((item) => {
+            return (
+              <Card key={item.title}
                 style={{
-                  color: 'black', fontSize: 32, fontFamily: 'Raleway', whiteSpace: 'pre-wrap', maxWidth: '90%',
+                  width: '50%', marginBottom: 20, display: 'flex', flexDirection: 'column', alignItems: 'center',
                 }}
               >
-                {item.title}
-              </Typography>
-              <Typography align="center"
-                color="textSecondary"
-                style={{
-                  fontSize: 14, fontFamily: 'Raleway', whiteSpace: 'pre-wrap', maxWidth: '90%',
+                <CardContent style={{
+                  width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center',
                 }}
-              >
-                {item.period}
-              </Typography>
-              <Typography align="center"
-                color="textSecondary"
-                style={{
-                  fontSize: 18, fontFamily: 'Raleway', whiteSpace: 'pre-wrap', maxWidth: '90%',
-                }}
-              >
-                {item.subtitle}
-              </Typography>
-              <Typography align="center"
-                style={{
-                  color: 'black', fontSize: 14, fontFamily: 'Raleway', whiteSpace: 'pre-wrap', maxWidth: '90%',
-                }}
-              >
-                {item.description}
-              </Typography>
-            </CardContent>
-            <CardActions style={{
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'center',
-              alignItems: 'center',
-              backgroundColor: 'rgb(240,240,240)',
-            }}
-            >
-              <div style={{
-                display: 'flex',
-                flexDirection: 'row',
-                width: 600,
-                padding: 0,
-                margin: 0,
-                justifyContent: 'space-around',
-                alignItems: 'center',
-              }}
-              >
-                <Fab size="large"
-                  color="primary"
-                  onClick={() => { this.prev(); }}
                 >
-                  <ChevronLeftIcon />
-                </Fab>
-                <Fab size="large"
-                  color="primary"
-                  onClick={() => { this.next(); }}
-                >
-                  <ChevronRightIcon />
-                </Fab>
-              </div>
-            </CardActions>
-          </Card>
+                  <Typography align="center"
+                    style={{
+                      color: 'black', fontSize: 32, fontFamily: 'Raleway', whiteSpace: 'pre-wrap', maxWidth: '90%',
+                    }}
+                  >
+                    {item.title}
+                  </Typography>
+                  <Typography align="center"
+                    color="textSecondary"
+                    style={{
+                      fontSize: 14, fontFamily: 'Raleway', whiteSpace: 'pre-wrap', maxWidth: '90%',
+                    }}
+                  >
+                    {item.period}
+                  </Typography>
+                  <Typography align="center"
+                    color="textSecondary"
+                    style={{
+                      fontSize: 18, fontFamily: 'Raleway', whiteSpace: 'pre-wrap', maxWidth: '90%',
+                    }}
+                  >
+                    {item.subtitle}
+                  </Typography>
+                  <Typography align="center"
+                    style={{
+                      color: 'black', fontSize: 14, fontFamily: 'Raleway', whiteSpace: 'pre-wrap', maxWidth: '90%',
+                    }}
+                  >
+                    {item.description}
+                  </Typography>
+                </CardContent>
+                <CardActions style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  backgroundColor: 'rgb(240,240,240)',
+                  width: '100%',
+                }}
+                />
+              </Card>
+            );
+          })}
         </div>
       </div>
     );

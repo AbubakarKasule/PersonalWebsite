@@ -59,7 +59,6 @@ function Education(props) {
         display: 'flex',
         alignItems: 'center',
         width: '100vw',
-        height: '100vh',
         flexDirection: 'column',
         position: 'relative',
       },
@@ -67,9 +66,8 @@ function Education(props) {
         display: 'flex',
         flexDirection: 'column',
         width: '100%',
-        height: '100%',
         position: 'absolute',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         alignContent: 'center',
         alignItems: 'center',
       },
@@ -104,18 +102,6 @@ function Education(props) {
 
   return (
     <div style={styles.container}>
-      <div style={{
-        backgroundImage: `url(${props.lightMode ? 'https://media.giphy.com/media/3ov9jJuT2pEVMRMas0/giphy.gif' : 'https://media.giphy.com/media/k5GcybwY1yybmGwrFg/giphy.gif'})`,
-        filter: 'blur(8px)',
-        backgroundSize: 'cover',
-        position: 'absolute',
-        width: '100%',
-        minHeight: '100vh',
-        top: 0,
-        padding: 0,
-        margin: 0,
-      }}
-      />
       <div style={styles.block}>
         <span style={styles.text1}>
           Dartmouth College
