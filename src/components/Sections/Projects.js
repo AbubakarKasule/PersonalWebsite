@@ -19,19 +19,51 @@ class Projects extends Component {
       description: 'Project Iminsi was an Afro-centric news app developed using React Native. Africa has a chronic media problem. It is very difficult to know what is happening in other countries in Africa without relying on western news coverage. Iminsi is the first all-African news app. The app uses the power of crowdsourcing to deliver a platform of reliable, local African news. It was developed by myself and 5 other students as our final project for CS52. \n\nHere are some links related to this project: ',
       links: [
         {
-          url: 'https://github.com/AbubakarKasule/project-iminsi',
+          url: 'https://github.com/AbubakarKasule/project-iminsi-public',
           name: 'Front-end repo',
         },
       ],
     },
     {
-      title: 'My Matrix Library',
+      title: 'Prognostic Models for Covid-19',
       subtitle: 'Description:',
-      period: 'Developed during Winter 2020',
-      description: 'I developed this library in C++. The matrix class stored the dimensions of the matrix as ints and the data contained within the matrix as a vector. I created member class functions to handle all the needed operations such as matrix-matrix multiplication, matrix-scalar multiplication, and matrix-transpose. \n\nHere are some links related to this project: ',
+      period: 'Developed during Fall 2020',
+      description: 'In this project, I explored the use of non-clinical features to develop prognostic machine learning models that can be used to identify individuals who are at risk of developing serious complications if they were to contract Covid-19. I defined non-clinical features as subjective and objective information that a non-medical professional would be able to obtain about themselves on their own without specialized equipment. As a secondary goal, I also rank the non-clinical features utilized by importance using a Random Forest classifier. The data used in this project was leveraged from a publicly available dataset on Kaggle. After cleaning and processing the original dataset, I trained 5 standard machine learning models. These models were subsequently able to identify at-risk individuals with 83% to 94% accuracy. The area under the receiver operating characteristics (AUROC) curve for our models ranged from 0.7 to 0.92, performing nearly as well as other models that utilize clinical features. Significant non-clinical features identified in this project included the following: age, total number of pre-existing conditions, hypertension, diabetes, obesity, kidney failure, and cardiovascular issues. This finding is consistentwith current research on Covid-19 co-morbidities. \n\nHere are some links related to this project: ',
       links: [
         {
-          url: 'https://github.com/AbubakarKasule/My-Matrix-Library',
+          url: 'https://github.com/AbubakarKasule/Notebook-For-CS89-Final-Project',
+          name: 'Data processing Notebook',
+        },
+        {
+          url: 'https://github.com/AbubakarKasule/Covid-19-Prognostic-Models',
+          name: 'Covid models Notebook',
+        },
+        {
+          url: 'https://sites.google.com/dartmouth.edu/ml-models-to-asses-covid-risk/home',
+          name: 'Project Website',
+        },
+      ],
+    },
+    {
+      title: 'Ongoing research for the Sustainable Health Lab',
+      subtitle: 'Description:',
+      period: 'Developed during Summer 2020 (Ongoing)',
+      description: 'I am developing a server that extracts a patient/user\'s medicare data from the Center for Medicare and Medicaid Services (CMS) Medicare claims data using the Blue Button 2.0 API and organizes the data into an internal database. I had to develop a data pipeline to process the data recieved from the Blubutton API into the correct shape for our internal database. \n\nHere are some links related to this project: ',
+      links: [
+        {
+          url: '#',
+          name: 'N/A',
+        },
+      ],
+    },
+    {
+      title: 'Maze solver',
+      subtitle: 'Description:',
+      period: 'Developed during Winter 2020',
+      description: 'Me and my team built a maze solving algorithm and GUI display for our solutions. Our algorithm used several heuristics, primarily the right hand rule, to solve the maze. My group ended up tied with another group for fastest algorithm in the class. \n\nHere are some links related to this project: ',
+      links: [
+        {
+          url: 'https://github.com/AbubakarKasule/Maze-Solver',
           name: 'Project repo',
         },
       ],
@@ -57,25 +89,13 @@ class Projects extends Component {
       ],
     },
     {
-      title: 'Ongoing research for the Sustainable Health Lab',
-      subtitle: 'Description:',
-      period: 'Developed during Summer 2020 (Ongoing)',
-      description: 'I am developing a server that extracts a patient/user\'s medicare data from the Center for Medicare and Medicaid Services (CMS) Medicare claims data using the Blue Button 2.0 API and organizes the data into an internal database. I had to develop a data pipeline to process the data recieved from the Blubutton API into the correct shape for our internal database. \n\nHere are some links related to this project: ',
-      links: [
-        {
-          url: '#',
-          name: 'N/A',
-        },
-      ],
-    },
-    {
-      title: 'Maze solver',
+      title: 'My Matrix Library',
       subtitle: 'Description:',
       period: 'Developed during Winter 2020',
-      description: 'Me and my team built a maze solving algorithm and GUI display for our solutions. Our algorithm used several heuristics, primarily the right hand rule, to solve the maze. My group ended up tied with another group for fastest algorithm in the class. \n\nHere are some links related to this project: ',
+      description: 'I developed this library in C++. The matrix class stored the dimensions of the matrix as ints and the data contained within the matrix as a vector. I created member class functions to handle all the needed operations such as matrix-matrix multiplication, matrix-scalar multiplication, and matrix-transpose. \n\nHere are some links related to this project: ',
       links: [
         {
-          url: 'https://github.com/AbubakarKasule/Maze-Solver',
+          url: 'https://github.com/AbubakarKasule/My-Matrix-Library',
           name: 'Project repo',
         },
       ],

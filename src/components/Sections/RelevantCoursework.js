@@ -28,6 +28,18 @@ class RelevantCoursework extends Component {
       description: 'I learned supervised and unsupervised machine learning, statistical inference and prediction, and data mining in this class. I also learned how to apply these techniques to a wide variety of real world data sets. A wide variety of algorithms were taught in this class, including K-nearest neighbors, naive Bayes, decision trees, support vector machines, logistic regression, K-means, mixtures of Gaussians, principal components analysis.',
     },
     {
+      title: 'Computer Science 89.20/189: Data Science for Health',
+      subtitle: 'Skills developed:',
+      period: 'Taken during Fall 2020',
+      description: 'This class covered state-of-the-art methods for data acquisition and analysis, with an emphasis on interpretation of behavioral and physiological data. For my final project in this class, I developed prognostic models for SARS-CoV-2 that predict severity of illness before an individual contracts the virus.',
+    },
+    {
+      title: 'Computer Science 69.11: Mobile X (mobile computing and ubiquitous systems)',
+      subtitle: 'Skills developed:',
+      period: 'Taken during Fall 2020',
+      description: 'Mobile X was an upper-level course on mobile computing and ubiquitous systems, covering a broad range of advanced and interdisciplinary topics in mobile systems, networking, and applications. In this class, I learnt about the challenges of mobile computing through reading state of the art papers on the field. For my final project, myself and 4 other students worked on an application to help improve the quality of an individual\'s social distancing efforts. The application works by performing a Bluetooth scan, using the users mobile device, and monitoring how the total BLE RSSI value of all devices detected by the scan change over time. By graphing these RSSI values over time, we can utilize the area under the graph as a proxy for how well someone is socially distancing compared to other users of our system.',
+    },
+    {
       title: 'Computer Science 70.01: Foundations of Applied Computer Science',
       subtitle: 'Skills developed:',
       period: 'Taken during Winter 2019',
